@@ -38,6 +38,13 @@ Optional:
 - `NOMUPAY_PRIVATE_KEY_PATH` — path to a `.pem` file, as an alternative to
   `NOMUPAY_PRIVATE_KEY`.
 
+The key must keep its line breaks. In `NOMUPAY_PRIVATE_KEY` write them as
+literal `\n` (one line: `-----BEGIN ...-----\nMHcC...\n-----END ...-----`).
+If you see `DECODER routines::unsupported`, the PEM lost its line breaks —
+the header, body, and footer were pasted on one line with spaces or nothing
+between them. Re-paste with `\n` separators, or use
+`NOMUPAY_PRIVATE_KEY_PATH` to point at the `.pem` file instead.
+
 ## Prerequisite: Configure npm authentication
 
 This package is hosted on GitHub Packages. Authentication is required even
